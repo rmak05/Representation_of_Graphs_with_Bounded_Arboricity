@@ -1,7 +1,7 @@
 #include "disjoint_set_union.hpp"
 
 dsu::dsu(int _n) :
-    parent(_n), set_size(_n){
+parent(_n), set_size(_n){
     for(int i = 0; i < _n; i++){
         parent[i] = i;
         set_size[i] = 1;
