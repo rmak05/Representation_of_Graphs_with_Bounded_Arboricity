@@ -2,20 +2,22 @@
 #define SPARSE_GRAPH_HPP 1
 
 #include <vector>
+#include <utility>
 
 class sparse_graph{
 private:
-    std::vector<std::vector<int>> graph;
+    std::vector<std::vector<int>> adj_list;
+    int arboricity;
 
 public:
     sparse_graph();
-    sparse_graph(const int _num_vertices);
-    sparse_graph(const int _num_vertices, const std::vector<int>& _edges);
+    sparse_graph(const int _num_vertices, const int _arboricity);
+    sparse_graph(const int _num_vertices, const std::vector<std::pair<int, int>>& _edges, const int _arboricity);
 
     bool adjacent(const int _u, const int _v) const;
-    void insert(const int u, const int v);
+    void insert(const int _u, const int _v);
     void erase(const int _u, const int _v);
-    void build(const int _num_vertices, const std::vector<int>& _edges);
+    void build(const int _num_vertices, const std::vector<std::pair<int, int>>& _edges, const int _arboricity);
 };
 
 #endif /* SPARSE_GRAPH_HPP */
