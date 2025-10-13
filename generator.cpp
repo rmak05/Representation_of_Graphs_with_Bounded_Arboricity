@@ -28,10 +28,9 @@ std::vector<std::pair<int, int>> generator::generate_sparse_graph(const int _n, 
             int random_component_1 = pick_random_component();
             int random_component_2 = pick_random_component();
 
-            if(random_component_1 > random_component_2) std::swap(random_component_1, random_component_2);
-    
-            edges.emplace(random_component_1, random_component_2);
             components.push_back(random_component_1);
+            if(random_component_1 > random_component_2) std::swap(random_component_1, random_component_2);
+            edges.emplace(random_component_1, random_component_2);
         }
     }
 
