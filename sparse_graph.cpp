@@ -1,6 +1,7 @@
 #include "sparse_graph.hpp"
 #include <utility>
 #include <algorithm>
+#include <iostream>
 #include <stack>
 
 /*
@@ -24,9 +25,11 @@ bool sparse_graph::adjacent(const int _u, const int _v) const{
 }
 
 void sparse_graph::insert(const int _u, const int _v){
+    int delta = 4 * arboricity;
+    
     adj_list[_u].push_back(_v);
 
-    if(static_cast<int>(adj_list[_u].size()) == arboricity + 1){
+    if(static_cast<int>(adj_list[_u].size()) == delta + 1){
         std::stack<int> stk;
 
         stk.push(_u);
@@ -37,7 +40,7 @@ void sparse_graph::insert(const int _u, const int _v){
             for(auto& x : adj_list[w]){
                 adj_list[x].push_back(w);
 
-                if(static_cast<int>(adj_list[x].size()) == arboricity + 1){
+                if(static_cast<int>(adj_list[x].size()) == delta + 1){
                     stk.push(x);
                 }
             }
