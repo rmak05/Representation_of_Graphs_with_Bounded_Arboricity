@@ -1,0 +1,21 @@
+# c = 20, n = 1e2 to 1e5
+
+Input 1:
+Total Elapsed Time: 0.012200000000000
+Amortized Time: 0.000271111111111
+
+Input 2:
+Total Elapsed Time: 0.279700000000000
+Amortized Time: 0.000166389054134
+
+Input 3:
+Total Elapsed Time: 1.812300000000000
+Amortized Time: 0.000092469003521
+
+Input 4:
+Total Elapsed Time: 12.309700000000005
+Amortized Time: 0.000061677405778
+
+Input 5:
+Total Elapsed Time: 153.283900000001152
+Amortized Time: 0.000076657894842
