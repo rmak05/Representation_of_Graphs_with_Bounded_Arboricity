@@ -1,5 +1,6 @@
 #include "sparse_graph.hpp"
 #include "generator.hpp"
+#include "graph_utility.hpp"
 #include <iostream>
 #include <fstream>
 #include <chrono>
@@ -67,9 +68,35 @@ void check_runtime(){
     }
 }
 
+void approx_arboricity_test(){
+    for(int file_no = 5; file_no <= 5; file_no++){
+        std::ifstream input_file("Input/input_const_c_5_" + std::to_string(file_no) + ".txt");
+
+        int n, m, c;
+        input_file >> n >> m >> c;
+        std::vector<std::vector<int>> adj_list(n);
+        for(int i = 0; i < m; i++){
+            int u, v;
+            input_file >> u >> v;
+
+            adj_list[u].emplace_back(v);
+            adj_list[v].emplace_back(u);
+        }
+
+        input_file.close();
+
+        std::cout << find_arboricity_approx(adj_list) << std::endl;
+    }
+}
+
 int main(){
+    std::cout << "Start" << std::endl;
+
     // generate_test_cases();
-    check_runtime();
+    // check_runtime();
+    approx_arboricity_test();
+
+    std::cout << "End" << std::endl;
 
     return 0;
 }
