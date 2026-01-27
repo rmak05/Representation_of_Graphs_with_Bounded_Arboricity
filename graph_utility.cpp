@@ -19,7 +19,11 @@ int find_arboricity_approx(const std::vector<std::vector<int>>& adj_list){
         bool found = false;
 
         while(!found){
-            for(auto& u : degree_list[min_degree]){
+            while(!degree_list[min_degree].empty()){
+                auto u = degree_list[min_degree].back();
+
+                degree_list[min_degree].pop_back();
+
                 if(!visited[u]){
                     v = u;
                     visited[u] = true;

@@ -69,7 +69,7 @@ void check_runtime(){
 }
 
 void approx_arboricity_test(){
-    for(int file_no = 5; file_no <= 5; file_no++){
+    for(int file_no = 1; file_no <= 5; file_no++){
         std::ifstream input_file("Input/input_const_c_5_" + std::to_string(file_no) + ".txt");
 
         int n, m, c;
@@ -85,7 +85,15 @@ void approx_arboricity_test(){
 
         input_file.close();
 
+        auto start_time = std::chrono::high_resolution_clock::now();
+
         std::cout << find_arboricity_approx(adj_list) << std::endl;
+
+        auto end_time = std::chrono::high_resolution_clock::now();
+        auto elapsed_time = std::chrono::duration_cast<std::chrono::duration<long double, std::milli>>(end_time - start_time);
+
+        std::cout << "Elapsed Time: " << elapsed_time.count() << std::endl;
+        std::cout << std::endl;
     }
 }
 
