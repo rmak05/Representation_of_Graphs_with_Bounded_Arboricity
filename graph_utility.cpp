@@ -4,7 +4,7 @@
 
 int find_arboricity_approx(const std::vector<std::vector<int>>& adj_list){
     int arboricity_approx = 0, n = static_cast<int>(adj_list.size()), min_degree = 0;
-    std::vector<bool> visited(n, false);
+    std::vector<bool> removed(n, false);
     std::vector<int> degree(n, 0);
     std::vector<std::vector<int>> degree_list(n);
 
@@ -24,10 +24,12 @@ int find_arboricity_approx(const std::vector<std::vector<int>>& adj_list){
 
                 degree_list[min_degree].pop_back();
 
-                if(!visited[u]){
+                if(!removed[u]){
                     v = u;
-                    visited[u] = true;
+                    removed[u] = true;
                     found = true;
+                    degree[u] = 0;
+                    
                     break;
                 }
             }
@@ -42,7 +44,7 @@ int find_arboricity_approx(const std::vector<std::vector<int>>& adj_list){
         min_degree = std::max(0, min_degree - 1);
 
         for(auto& u : adj_list[v]){
-            if(visited[u]) continue;
+            if(removed[u]) continue;
 
             degree[u]--;
             degree_list[degree[u]].emplace_back(u);
