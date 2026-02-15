@@ -21,15 +21,15 @@ sparse_graph::sparse_graph(const int _num_vertices, const std::vector<std::pair<
 }
 
 bool sparse_graph::adjacent(const int _u, const int _v) const{
-    return (std::find(adj_list[_u].begin(), adj_list[_u].end(), _v) != adj_list[_u].end()) || (std::find(adj_list[_v].begin(), adj_list[_v].end(), _u) != adj_list[_v].end());
+    return (std::find(out_list[_u].begin(), out_list[_u].end(), _v) != out_list[_u].end()) || (std::find(out_list[_v].begin(), out_list[_v].end(), _u) != out_list[_v].end());
 }
 
 void sparse_graph::insert(const int _u, const int _v){
     int delta = 4 * arboricity;
     
-    adj_list[_u].push_back(_v);
+    out_list[_u].push_back(_v);
 
-    if(static_cast<int>(adj_list[_u].size()) == delta + 1){
+    if(static_cast<int>(out_list[_u].size()) == delta + 1){
         std::stack<int> stk;
 
         stk.push(_u);
@@ -37,15 +37,15 @@ void sparse_graph::insert(const int _u, const int _v){
             int w = stk.top();
             stk.pop();
 
-            for(auto& x : adj_list[w]){
-                adj_list[x].push_back(w);
+            for(auto& x : out_list[w]){
+                out_list[x].push_back(w);
 
-                if(static_cast<int>(adj_list[x].size()) == delta + 1){
+                if(static_cast<int>(out_list[x].size()) == delta + 1){
                     stk.push(x);
                 }
             }
 
-            adj_list[w].clear();
+            out_list[w].clear();
         }
     }
 }
@@ -53,22 +53,22 @@ void sparse_graph::insert(const int _u, const int _v){
 void sparse_graph::erase(const int _u, const int _v){
     std::vector<int>::const_iterator itr;
 
-    itr = std::find(adj_list[_u].begin(), adj_list[_u].end(), _v);
-    if(itr != adj_list[_u].end()){
-        adj_list[_u].erase(itr);
+    itr = std::find(out_list[_u].begin(), out_list[_u].end(), _v);
+    if(itr != out_list[_u].end()){
+        out_list[_u].erase(itr);
         return;
     }
-    itr = std::find(adj_list[_v].begin(), adj_list[_v].end(), _u);
-    if(itr != adj_list[_v].end()){
-        adj_list[_v].erase(itr);
+    itr = std::find(out_list[_v].begin(), out_list[_v].end(), _u);
+    if(itr != out_list[_v].end()){
+        out_list[_v].erase(itr);
     }
 }
 
 void sparse_graph::build(const int _num_vertices, const std::vector<std::pair<int, int>>& _edges, const int _arboricity){
     arboricity = _arboricity;
 
-    adj_list.clear();
-    adj_list.resize(_num_vertices);
+    out_list.clear();
+    out_list.resize(_num_vertices);
 
     for(auto& edge :_edges){
         insert(edge.first, edge.second);

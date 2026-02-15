@@ -6,8 +6,8 @@
 
 class sparse_graph{
 private:
-    std::vector<std::vector<int>> adj_list;
-    int arboricity;
+    std::vector<std::vector<int>>   out_list;
+    int                             arboricity;
 
 public:
     sparse_graph();
