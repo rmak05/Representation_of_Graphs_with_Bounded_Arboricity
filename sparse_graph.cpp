@@ -1,8 +1,8 @@
-#include "sparse_graph.hpp"
 #include <utility>
 #include <algorithm>
 #include <iostream>
 #include <stack>
+#include "sparse_graph.hpp"
 
 /*
 For now, bound checks aren't being performed

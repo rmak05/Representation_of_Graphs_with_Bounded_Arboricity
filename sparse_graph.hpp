@@ -5,7 +5,7 @@
 #include <utility>
 
 class sparse_graph{
-private:
+protected:
     std::vector<std::vector<int>>   out_list;
     int                             arboricity;
 

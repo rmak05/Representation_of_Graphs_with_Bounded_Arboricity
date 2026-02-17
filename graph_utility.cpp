@@ -1,6 +1,6 @@
-#include "graph_utility.hpp"
 #include <algorithm>
 #include <iostream>
+#include "graph_utility.hpp"
 
 int find_arboricity_approx(const std::vector<std::vector<int>>& adj_list){
     int arboricity_approx = 0, n = static_cast<int>(adj_list.size()), min_degree = 0;
