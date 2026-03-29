@@ -7,7 +7,14 @@ graph_maximal_matching::graph_maximal_matching(const int _num_vertices, const in
 
 void graph_maximal_matching::insert(const int _u, const int _v){
     int delta = 4 * arboricity;
+
+    /*
+    if _u and _v are unmatched, match them immediately
+    */
     
+    /*
+    below lines update the list correctly but it is supposed to match as well if possible
+    */
     out_list[_u].push_back(_v);
     if(matching[_u] == -1) partial_unmatched_list[_v].insert(_u);
     if(matching[_v] == -1) partial_unmatched_list[_u].insert(_v);
