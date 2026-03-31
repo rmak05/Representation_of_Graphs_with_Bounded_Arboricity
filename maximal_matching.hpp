@@ -43,6 +43,7 @@ public:
     void insert(int _u, int _v);
     void erase(const int _u, const int _v);
     void build(const int _num_vertices, const std::vector<std::pair<int, int>>& _edges, const int _arboricity);
+    int get_matched_vertex(const int _u) const;
 };
 
 #endif /* MAXIMAL_MATCHING_HPP */

@@ -225,3 +225,7 @@ void graph_maximal_matching::build(const int _num_vertices, const std::vector<st
         insert(edge.first, edge.second);
     }
 }
+
+int graph_maximal_matching::get_matched_vertex(const int _u) const{
+    return matching[_u];
+}
