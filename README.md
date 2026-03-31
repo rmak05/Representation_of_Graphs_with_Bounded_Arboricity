@@ -49,7 +49,7 @@ Where,
 
 - Each vertex maintains three lists: **out_list**, **in_list_matched** and **in_list_unmatched**.
 
-- Whenever, the matching status of a vertex changes, it notifies the same to its out neighbours. This notifying results in the updation of the lists **in_list_matched** and **in_list_unmatched**.
+- Whenever the matching status of a vertex changes, it notifies the same to its out neighbours. This notification results in the updation of the lists **in_list_matched** and **in_list_unmatched**.
 
 - We only have the liberty to traverse through **out_lists** as their sizes are bounded. The **in_lists** must be updated efficiently.
 
@@ -60,7 +60,9 @@ Where,
   Exactly one of the appropriate **in_lists** of **v** will contain an entry of **u**.   
   Both entries will be connected to each other via **external** pointers.   
 
-- Check the below image as an example. Only some lists have been depicted in the diagram.
+- Check the below image as an example. Only some lists have been depicted in the diagram.   
+  Bold edge denotes a matched edge.    
+  Dashed pointer denotes an **external** pointer.   
 
   <img src = "README_Images/maximal_matching.png" alt = "Image not found">
 
