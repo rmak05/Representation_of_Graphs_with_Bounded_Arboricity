@@ -28,7 +28,7 @@ void generate_test_cases(){
     }
 }
 
-void check_runtime(){
+void check_runtime_sparse(){
     std::cout.setf(std::ios::fixed, std::ios::floatfield);
     std::cout << std::setprecision(15);
 
@@ -97,12 +97,53 @@ void approx_arboricity_test(){
     }
 }
 
+void check_runtime_maximal_matching(){
+    std::cout.setf(std::ios::fixed, std::ios::floatfield);
+    std::cout << std::setprecision(15);
+
+    for(int file_no = 1; file_no <= 5; file_no++){
+        std::ifstream input_file("Input/input_const_c_20_" + std::to_string(file_no) + ".txt");
+
+        int n, m, c;
+        input_file >> n >> m >> c;
+        std::vector<std::pair<int, int>> edges(m);
+        for(int i = 0; i < m; i++){
+            int u, v;
+            input_file >> u >> v;
+
+            if(i & 1) edges[i] = std::make_pair(u, v);
+            else edges[i] = std::make_pair(v, u);
+        }
+
+        sparse_graph graph(n, c);
+
+        long double total_elapsed_time = 0.0f;
+        for(int i = 0; i < m; i++){
+            auto start_time = std::chrono::high_resolution_clock::now();
+
+            graph.insert(edges[i].first, edges[i].second);
+            
+            auto end_time = std::chrono::high_resolution_clock::now();
+
+            auto elapsed_time = std::chrono::duration_cast<std::chrono::duration<long double, std::milli>>(end_time - start_time);
+
+            total_elapsed_time += elapsed_time.count();
+        }
+
+        std::cout << "Input " << file_no << ":" << std::endl;
+        std::cout << "Total Elapsed Time: " << total_elapsed_time << std::endl;
+        std::cout << "Amortized Time: " << (total_elapsed_time / m) << std::endl;
+        std::cout << std::endl;
+    }
+}
+
 int main(){
     std::cout << "Start" << std::endl;
 
     // generate_test_cases();
-    // check_runtime();
-    approx_arboricity_test();
+    // check_runtime_sparse();
+    // approx_arboricity_test();
+    check_runtime_maximal_matching();
 
     std::cout << "End" << std::endl;
 
