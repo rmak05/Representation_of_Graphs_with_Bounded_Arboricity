@@ -2,9 +2,9 @@
 
 An implementation of the graph data structure described in `"Dynamic Representation of Sparse Graphs" by Gerth Stølting Brodal and Rolf Fagerberg (WADS 1999: 342-351)`.
 
-## Overview
+## Sparse Graph
 
-This repository provides an implementation of dynamic graphs, which supports the following operations:
+This repository provides an implementation of dynamic sparse graphs, which supports the following operations:
 
 | Operation  | Time Complexity                   |
 |:-----------|:----------------------------------|
@@ -30,6 +30,19 @@ The steps of generation are as follows:
 
 - The union of the edge sets of all the generated trees is taken as the edge set of the final graph which is the output.
 
+## 2-Approximation Algorithm to compute Arboricity
+
+- This algorithm computes a 2-approximation of the arboricity of the graph.   
+  2-approximation means the computed arboricity is at most twice the actual arboricity.
+
+- It runs in *O*(**n** + **m**) time and uses *O*(**n** + **m**) space, where **n** = number of vertices, and **m** = number of edges.
+
+- This algorithm will be helpful if the arboricity of the input graph is not known prior to execution.
+
+- If it is known that the arboricity of the graph will remain bounded, then running this algorithm just once should be enough.
+
+- If the arboricity changes(specifically increases) during execution, then this algorithm could be repeatedly run after some number of iterations of execution depending on the application and constraints.
+
 ## Dynamic Maximal Matching
 
 A dynamic graph data structure which maintains a maximal matching over a sequence of edge insertions and deletions.   
@@ -44,6 +57,7 @@ The underlying structure is similar to the sparse graph structure which has been
 
 Where,   
 - **c** = bound on the arboricity of the graph    
+- Matching means given an input vertex, its matched vertex is the output
 
 ### Implementation
 

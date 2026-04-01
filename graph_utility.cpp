@@ -13,7 +13,6 @@ int find_arboricity_approx(const std::vector<std::vector<int>>& adj_list){
         degree_list[adj_list[u].size()].emplace_back(u);
     }
 
-    
     for(int i = n; i >= 1; i--){
         int v = -1;
         bool found = false;
