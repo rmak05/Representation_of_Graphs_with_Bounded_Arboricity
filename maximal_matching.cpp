@@ -7,6 +7,24 @@ vertex(_vertex), next(_next), previous(_previous), external(_external){}
 graph_maximal_matching::linked_list::linked_list() :
 head(nullptr), size(0){}
 
+bool graph_maximal_matching::list_contains(const linked_list& _list, int _vertex) const{
+    list_node *_head = _list.head;
+
+    if(!_head) return false;
+
+    list_node *temp = _head;
+
+    while(temp){
+        if(temp->vertex == _vertex){
+            return true;
+        }
+
+        temp = temp->next;
+    }
+
+    return false;
+}
+
 void graph_maximal_matching::insert_list_node(linked_list& _list, list_node* _node){
     list_node *_head = _list.head;
 
@@ -108,6 +126,10 @@ graph_maximal_matching::graph_maximal_matching(const int _num_vertices, const in
 
 graph_maximal_matching::graph_maximal_matching(const int _num_vertices, const std::vector<std::pair<int, int>>& _edges, const int _arboricity){
     build(_num_vertices, _edges, _arboricity);
+}
+
+bool graph_maximal_matching::adjacent(const int _u, const int _v) const{
+    return list_contains(out_list[_u], _v) || list_contains(out_list[_v], _u);
 }
 
 void graph_maximal_matching::insert(const int _u, const int _v){

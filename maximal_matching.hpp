@@ -23,6 +23,7 @@ private:
         linked_list();
     };
 
+    bool list_contains(const linked_list& _list, int _vertex) const;
     void insert_list_node(linked_list& _list, list_node* _node);
     void erase_list_node(linked_list& _list, list_node* _node); /* _node must exist in _head */
     bool erase_vertex_from_out_list(linked_list& _list, int _vertex); /* returns true if erased successfully */
@@ -40,6 +41,7 @@ public:
     graph_maximal_matching(const int _num_vertices, const int _arboricity);
     graph_maximal_matching(const int _num_vertices, const std::vector<std::pair<int, int>>& _edges, const int _arboricity);
 
+    bool adjacent(const int _u, const int _v) const;
     void insert(int _u, int _v);
     void erase(const int _u, const int _v);
     void build(const int _num_vertices, const std::vector<std::pair<int, int>>& _edges, const int _arboricity);
