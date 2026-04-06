@@ -1,12 +1,6 @@
 #include <stack>
 #include "maximal_matching.hpp"
 
-graph_maximal_matching::list_node::list_node(const int _vertex, list_node *_next, list_node *_previous, list_node *_external) :
-vertex(_vertex), next(_next), previous(_previous), external(_external){}
-
-graph_maximal_matching::linked_list::linked_list() :
-head(nullptr), size(0){}
-
 bool graph_maximal_matching::list_contains(const linked_list& _list, int _vertex) const{
     list_node *_head = _list.head;
 
@@ -25,45 +19,6 @@ bool graph_maximal_matching::list_contains(const linked_list& _list, int _vertex
     return false;
 }
 
-void graph_maximal_matching::insert_list_node(linked_list& _list, list_node* _node){
-    list_node *_head = _list.head;
-
-    if(!_node) return;
-
-    _node->next = _head;
-    _node->previous = nullptr;
-    if(_head) _head->previous = _node;
-
-    _head = _node;
-
-    _list.size++;
-}
-
-// void graph_maximal_matching::erase_list_node(list_node*& _head, list_node* _node){
-void graph_maximal_matching::erase_list_node(linked_list& _list, list_node* _node){
-    list_node *_head = _list.head;
-
-    if(!_head || !_node) return;
-
-    if(_head == _node){
-        list_node *temp = _head;
-
-        _head = _head->next;
-        if(_head) _head->previous = nullptr;
-
-        delete temp;
-    }
-    else{
-        _node->previous->next = _node->next;
-        if(_node->next) _node->next->previous = _node->previous;
-
-        delete _node;
-    }
-
-    _list.size--;
-}
-
-// bool graph_maximal_matching::erase_vertex_from_out_list(list_node*& _head, int _vertex){
 bool graph_maximal_matching::erase_vertex_from_out_list(linked_list& _list, int _vertex){
     list_node *_head = _list.head;
 
