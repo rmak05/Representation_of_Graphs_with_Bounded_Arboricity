@@ -8,10 +8,10 @@ void insert_list_node(linked_list& _list, list_node* _node);
 void erase_list_node(linked_list& _list, list_node* _node); /* _node must exist in _list */
 
 struct list_node{
-    int vertex;
-    list_node *next;
-    list_node *previous;
-    list_node *external;
+    int         vertex;
+    list_node*  next;
+    list_node*  previous;
+    list_node*  external;
 
     list_node(const int _vertex = -1, list_node *_next = nullptr, list_node *_previous = nullptr, list_node *_external = nullptr);
 };
@@ -19,8 +19,8 @@ struct list_node{
 
 class linked_list{
 public:
-    list_node* head;
-    int size;
+    list_node*  head;
+    int         size;
 
     linked_list();
 
