@@ -1,8 +1,7 @@
 #ifndef MAXIMAL_MATCHING_HPP
 #define MAXIMAL_MATCHING_HPP 1
 
-#include <set>
-#include "sparse_graph.hpp"
+#include <vector>
 
 class graph_maximal_matching{
 private:
