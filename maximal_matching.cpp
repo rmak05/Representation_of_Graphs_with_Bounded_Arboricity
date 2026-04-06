@@ -1,7 +1,7 @@
 #include <stack>
 #include "maximal_matching.hpp"
 
-bool graph_maximal_matching::list_contains(const linked_list& _list, int _vertex) const{
+bool graph_maximal_matching::list_contains(const linked_list<list_node>& _list, int _vertex) const{
     list_node *_head = _list.head;
 
     if(!_head) return false;
@@ -19,7 +19,7 @@ bool graph_maximal_matching::list_contains(const linked_list& _list, int _vertex
     return false;
 }
 
-bool graph_maximal_matching::erase_vertex_from_out_list(linked_list& _list, int _vertex){
+bool graph_maximal_matching::erase_vertex_from_out_list(linked_list<list_node>& _list, int _vertex){
     list_node *_head = _list.head;
 
     if(!_head) return false;

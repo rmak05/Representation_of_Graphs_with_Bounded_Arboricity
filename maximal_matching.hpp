@@ -6,16 +6,16 @@
 
 class graph_maximal_matching{
 private:
-    bool list_contains(const linked_list& _list, int _vertex) const;
-    bool erase_vertex_from_out_list(linked_list& _list, int _vertex); /* returns true if erased successfully */
+    bool list_contains(const linked_list<list_node>& _list, int _vertex) const;
+    bool erase_vertex_from_out_list(linked_list<list_node>& _list, int _vertex); /* returns true if erased successfully */
     void notify_out_neighbours(int _u, bool _matched);
 
 protected:
-    int                         arboricity;
-    std::vector<int>            matching; /* if v is matched to u, matching[v] = u, else matching[v] = -1 */
-    std::vector<linked_list>    in_list_matched;
-    std::vector<linked_list>    in_list_unmatched;
-    std::vector<linked_list>    out_list;
+    int                                 arboricity;
+    std::vector<int>                    matching; /* if v is matched to u, matching[v] = u, else matching[v] = -1 */
+    std::vector<linked_list<list_node>> in_list_matched;
+    std::vector<linked_list<list_node>> in_list_unmatched;
+    std::vector<linked_list<list_node>> out_list;
     
 public:
     graph_maximal_matching();
