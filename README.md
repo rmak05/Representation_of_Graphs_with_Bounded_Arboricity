@@ -88,6 +88,6 @@ Where,
 
 - Srinivasa R. Arikati, Anil Maheshwari, and Christos D. Zaroliagis, "Efficient computation of implicit representations of sparse graphs", Discrete Applied Mathematics, 1995.
 
-- Manas Jyoti Kashyop and N. S. Narayanaswamy, "An invitation to dynamic graph problems: Upper bounds—II" Resonance, vol. 27, no. 9, pp. 1607–1624, 2022.
+- Manas Jyoti Kashyop and N. S. Narayanaswamy, "An invitation to dynamic graph problems: Upper bounds—II", Resonance, vol. 27, no. 9, pp. 1607–1624, 2022.
 
-- Chandra Chekuri, Aleksander Bjørn Christiansen, Jacob Holm, Ivor van der Hoog, Kent Quanrud, Eva Rotenberg, and Chris Schwiegelshohn, "Adaptive out-orientations with applications," Proceedings of the 2024 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA), pp. 3062–3088, 2024.
+- Chandra Chekuri, Aleksander Bjørn Christiansen, Jacob Holm, Ivor van der Hoog, Kent Quanrud, Eva Rotenberg, and Chris Schwiegelshohn, "Adaptive out-orientations with applications", Proceedings of the 2024 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA), pp. 3062–3088, 2024.
