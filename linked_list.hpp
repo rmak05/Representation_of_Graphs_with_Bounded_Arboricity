@@ -2,6 +2,8 @@
 #define LINKED_LIST_HPP 1
 
 struct list_node;
+struct keyed_set_list_node;
+struct keyed_set_graph_node;
 template <typename _list_node_type>
 class linked_list;
 
@@ -18,6 +20,27 @@ public:
     list_node*  external;
 
     list_node(const int _vertex = -1, list_node *_next = nullptr, list_node *_previous = nullptr, list_node *_external = nullptr);
+};
+
+struct keyed_set_list_node{
+public:
+    int                     x;
+    int                     k;
+    keyed_set_list_node*    next;
+    keyed_set_list_node*    previous;
+    keyed_set_graph_node*   external;
+
+    keyed_set_list_node(const int _x = -1, const int _k = -1, keyed_set_list_node *_next = nullptr, keyed_set_list_node *_previous = nullptr, keyed_set_graph_node *_external = nullptr);
+};
+
+struct keyed_set_graph_node{
+public:
+    int                     vertex;
+    keyed_set_graph_node*   next;
+    keyed_set_graph_node*   previous;
+    keyed_set_list_node*    external;
+
+    keyed_set_graph_node(const int _vertex = -1, keyed_set_graph_node *_next = nullptr, keyed_set_graph_node *_previous = nullptr, keyed_set_list_node *_external = nullptr);
 };
 
 template <typename _list_node_type>

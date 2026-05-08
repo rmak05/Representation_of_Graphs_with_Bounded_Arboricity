@@ -1,6 +1,6 @@
 # Representation of Graphs with Bounded Arboricity
 
-An implementation of the graph data structure described in `"Dynamic Representation of Sparse Graphs" by Gerth Stølting Brodal and Rolf Fagerberg (WADS 1999: 342-351)`.
+Implementation of various sparse graph data structures.
 
 ## Sparse Graph
 
